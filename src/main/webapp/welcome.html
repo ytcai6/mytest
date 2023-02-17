@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .el-table .warning-row {
+            background: oldlace;
+        }
+
+        .el-table .success-row {
+            background: #f0f9eb;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            width:100%;
+            height:100%;
+            overflow: hidden;
+        }
+
+        #app{
+            height: 100%;
+            width: 100%;
+            /* background-color: red; */
+        }
+
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+
+        body{
+            background-color: rgb(242, 241, 241);
+        }
+
+        /* 顶部栏 */
+        .tp{
+            width: 100%;
+            height: 12%;
+            background-color: #2f4760;
+
+            /* padding-left: 20px;
+
+            position: relative; */
+
+            /* border: #E4E7EE; */
+            border: 1.5px solid #E4E7EE;
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            
+        }
+
+        /* 标题 */
+        .hd1{
+            /* position: absolute;
+            top: 50%;
+            transform: translate3d(0,-50%,0); */
+            
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+
+            letter-spacing:4px; 
+            display: inline-block; 
+            margin-left: 12px;
+        }
+
+        .hd2{
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+        }
+
+        /* 个人信息区 */
+        #info{
+            /* width: 19%;
+            height: 6%;
+
+            position: absolute;
+            top: -1.5%;
+            right: 6.1%;
+
+            /* background-color: red; */
+            /* border: 1.5px solid #E4E7EE;  */
+            /* display: inline-block;  */
+            color: white;
+        }
+
+        /* 右上角装饰图标 */
+        .image{
+            width: 10%;
+            height: 10%;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        /* 侧边栏 */
+        #sidebar{
+            width: 13%;
+            height: 100%;
+
+            background-color: white;
+
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+
+            text-align: right;
+
+            border: 1.5px solid #E4E7EE;
+            float: left;
+            /* display: inline-block; */
+        }
+
+        /* 功能 */
+        #functions{
+            /* position: relative;
+            left: 13%; */
+            list-style-type:none; 
+            /* line-height: 70px;
+
+            font-size: 18px; */
+            /* font-weight: 540; */
+            /* font-weight: normal; */
+
+            /* text-align: left; */
+
+            color: #545C70;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            width:100%;
+            /* letter-spacing: 3px; */
+            /* background-color: red; */
+        }
+
+        .fbtn{
+            width: 46%;
+            height: 10%;
+
+            font-size: 18px;
+            color: #545C70;
+            letter-spacing: 3px;
+            text-align: left;
+
+            border: none;
+            background-color: #ffffff;
+        }
+
+        /* button:hover{
+            color: #3F9CFF;
+        } */
+
+        /* 条件 */
+        #ops{
+            margin-top: 10px;
+        }
+
+        #status{
+            width: 78%;
+            height: 30%;
+            
+            color: #75767F;
+
+            background-color: white;
+
+            border-color: #DEE2EC;
+            border-radius: 6px;
+
+            letter-spacing: 1px;
+
+            padding-left: 5px;
+            padding-right: 5px;
+            /* margin-left: 5px;
+            margin-right: 20px; */
+            /* background-color: blue; */
+
+            float: right;
+        }
+
+        #cpname{
+            width: 18%;
+            height: 90%;
+            
+            color: #75767F;
+
+            background-color: white;
+
+            border-color: #DEE2EC;
+            border-radius: 6px;
+            border-style:solid;
+
+            letter-spacing: 1px;
+
+            padding-left: 6px;
+            padding-right: 6px;
+            margin-left: 5px;
+            margin-right: 20px;
+            display: inline-block;
+        }
+
+        #brname{
+            width: 18%;
+            height: 90%;
+            
+            color: #75767F;
+
+            background-color: white;
+
+            border-color: #DEE2EC;
+            border-radius: 6px;
+            border-style:solid;
+
+            letter-spacing: 1px;
+
+            padding-left: 6px;
+            padding-right: 6px;
+            margin-left: 5px;
+            margin-right: 20px;
+            display: inline-block;
+        }
+
+        /* 查询按钮 */
+        #lookup{
+            width: 6%;
+            height: 85%;
+
+            border-color: #DEE2EC;
+            border-radius: 15px;
+            border-style:solid;
+
+            text-align: center;
+
+            background-color: #2f4760;
+            color: white;
+            display: inline-block;
+        }
+
+        /* 表格区 */
+        #mainpart{
+            width: 96%;
+            height: 90%;
+
+            /* position: relative;
+            left: 19.5%;
+            top: 2%; */
+
+            background-color: white;
+
+            box-shadow: 0 0 15px 1px #DEE2EC;
+            overflow: hidden;
+            margin-bottom: 10px;
+            overflow: auto;
+        }
+
+        #container{
+            display:flex;
+            height:90%
+        }
+
+        #data{
+            width:87%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+            justify-content: center;
+        }
+
+        .chi,.eng{
+            font-size: 40px;
+            font-weight: 500;
+        }
+
+        #choice{
+            width:96%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .funitem{
+            width:100%;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        button:hover,.dark{
+            color:#2f4760;
+            font-weight: bold;
+        }
+        .el-pagination{
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="app">
+
+    <!-- 顶部标题部分 -->
+    <div class="tp">
+        <div class="hd1">  迅捷代跑后台管理系统  </div>
+
+        <div class="hd2">
+            <!-- 装饰图标 -->
+            <img class="image" src="img/右上装饰图标.png" alt="图片加载失败">
+    
+            <!-- 个人信息区 -->
+            <div id="info">
+                <p>Welcome: {{this.admin.username}}({{this.admin.userPosition}})</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="container">
+        <!-- 侧边栏 -->
+        <div id="sidebar">
+        <!-- 功能区 -->
+            <div id="funczone">
+                <ul id="functions">
+                    <li class="funitem" >
+                        <img src="img/订单.png" alt="图片加载失败" style="width: 30px; vertical-align: middle; margin-right: 10px;">
+                        <button v-bind:class="[active==1? 'dark fbtn':'fbtn']" id="order" @click="odbtn">订单管理</button> 
+                    </li>
+                    <li class="funitem" >
+                        <img src="img/地址.png" alt="图片加载失败" style="width: 30px; vertical-align: middle; margin-right: 10px;">
+                        <button v-bind:class="[active==2? 'dark fbtn':'fbtn']" id="address" @click="adbtn">地址管理</button>                     
+                    </li>
+                    <li class="funitem" >
+                        <img src="img/聊天.png" alt="图片加载失败" style="width: 30px; vertical-align: middle; margin-right: 10px;">
+                        <button v-bind:class="[active==3? 'dark fbtn':'fbtn']" id="chat"  @click="ctbtn">聊天记录</button> 
+                    </li>
+                    <li class="funitem" >
+                        <img src="img/管理员.png" alt="图片加载失败" style="width: 30px; vertical-align: middle; margin-right: 10px;">
+                        <button v-bind:class="[active==4? 'dark fbtn':'fbtn']" id="adm"  @click="ambtn">管理员</button> 
+                    </li>
+                    <li class="funitem" >
+                        <img src="img/员工.png" alt="图片加载失败" style="width: 30px; vertical-align: middle; margin-right: 10px;">
+                        <button v-bind:class="[active==5? 'dark fbtn':'fbtn']" id="emp"  @click="embtn">员工管理</button> 
+                    </li>
+                    <li class="funitem" >
+                        <img src="img/个人.png" alt="图片加载失败" style="width: 30px; vertical-align: middle; margin-right: 10px;">
+                        <button v-bind:class="[active==6? 'dark fbtn':'fbtn']" id="self"  @click="sfbtn">个人评价</button> 
+                    </li>
+                    <li class="funitem" >
+                        <img src="img/登录.png" alt="图片加载失败" style="width: 30px; vertical-align: middle; margin-right: 10px;">
+                        <button v-bind:class="[active==7? 'dark fbtn':'fbtn']" id="login"  @click="lobtn">登陆日志</button> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="data">
+            <div class="chi">欢迎使用</div>
+            <div class="eng">Welcome!</div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="js/vue.js"></script>
+<script src="element-ui/lib/index.js"></script>
+<link rel="stylesheet" href="element-ui/lib/theme-chalk/index.css">
+
+<script src="js/axios-0.18.0.js"></script>
+
+
+<script>
+
+    new Vue({
+        el: "#app",
+
+        mounted() {
+            //页面加载完成后发送异步请求获取数据
+            this.selectAll();
+            this.admin.username=this.getQueryVariable("admin");
+            this.admin.userPosition=this.getQueryVariable("position");
+            console.log(this.admin.username)
+        },
+
+
+        methods: {
+            handleOpen(key, keyPath) {  // 导航栏的函数
+                console.log(key, keyPath);
+            },
+            handleClose(key, keyPath) { // 导航栏的函数
+                console.log(key, keyPath);
+            },
+            getQueryVariable(variable){
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++) {
+                        var pair = vars[i].split("=");
+                        if(pair[0] == variable){return pair[1];}
+                }
+                return(false);
+            },
+
+            handleDelete(index, row) {
+                // console.log(row._id);
+                this.deleteById(row._id);
+            },
+
+            handleEdit(index, row){
+                // console.log(row.id);
+                this.dialogVisible1=true;
+                this.order=this.tableData[index];
+            },
+
+            editOrder(){;
+                var neworder=this.order;
+
+                var _this=this;
+                axios({
+                    method: "post",
+                    url: "http://localhost:8080/brand_case_war/order/editById",
+                    data: neworder
+                }).then(resp => {
+                    if (resp.data == "success") {
+                        //数据修改成功
+                        _this.cancelEdit();
+                        //重新查询数据
+                        _this.selectAll();
+
+                        _this.$message({
+                            message: '恭喜你，数据修改成功',
+                            type: 'success'
+                        });
+                    } else {
+                        this.$message.error('数据错误，修改失败');
+                    }
+                });
+            },
+
+            cancelEdit(){
+                this.dialogVisible1=false;
+            },
+
+            //查询数据
+            selectAll() {
+                // var _this=this;
+                // axios({
+                //     method: "get",
+                //     url: "http://localhost/brand_case_war/selectAllServlet"
+                // }).then(function (resp) {
+                //     _this.tableData=resp.data;
+                // })
+
+                // 查询所有数据
+                // var _this=this;
+                // axios({
+                //     method: "get",
+                //     url: "http://localhost:8080/brand_case_war/order/selectAll"
+                // }).then(function (resp) {
+                //     // console.log(resp.data)
+                //     _this.tableData=resp.data;
+                // })
+
+                // 查询分页数据
+                var _this=this;
+                axios({
+                    method: "post",
+                    url: "http://localhost:8080/brand_case_war/order/selectByPageAndCondition?" +
+                        "currentPage=" + this.currentPage + "&pageSize=" + this.pageSize,
+                    data: this.order
+                }).then(resp => {
+                    //设置表格数据
+                    this.tableData = resp.data.rows;
+                    //设置总记录数
+                    this.totalCount = resp.data.totalCount;
+                });
+            },
+
+            tableRowClassName({row, rowIndex}) {
+                if (rowIndex === 1) {
+                    return 'warning-row';
+                } else if (rowIndex === 3) {
+                    return 'success-row';
+                }
+                return '';
+            },
+
+            // 复选框选中后执行的方法
+            handleSelectionChange(val) {
+                this.multipleSelection = val;
+                // console.log(this.multipleSelection)
+            },
+
+            // 输入条件后进行查询
+            onSubmit() {
+                this.selectAll();
+            },
+
+            // 添加数据
+            addOrder() {
+                var _this = this;
+                // 发送ajax异步请求
+                axios({
+                    method: "post",
+                    url: "http://localhost:8080/brand_case_war/order/add",
+                    data: _this.order
+                }).then(function (resp) {
+                    if (resp.data == "success") {
+                        //添加成功
+                        //关闭窗口
+                        _this.dialogVisible = false;
+                        //重新查询数据
+                        // _this.selectAll();
+                        _this.$message({
+                            message: '恭喜你，添加成功',
+                            type: 'success'
+                        });
+
+                        location.reload();
+                    } else {
+                        this.$message.error('数据错误，添加失败');
+                    }
+                });
+            },
+
+            //分页
+            handleSizeChange(val) {
+                // console.log(`每页 ${val} 条`);
+                //设置每页显示条数
+                this.pageSize = val;
+                this.selectAll();
+            },
+
+            handleCurrentChange(val) {
+                // console.log(`当前页: ${val}`);
+                this.currentPage = val;
+                this.selectAll();
+            },
+
+            // 完成批量删除
+            deleteByIds() {
+                //创建id数组,存放id [1,2,3]
+
+                this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    //用户点击确认
+
+                    //创建id数组,存放id [1,2,3],从this.multipleselection中获取
+                    for (let i = 0; i < this.multipleSelection.length; i++) {
+                        let selectionElement = this.multipleSelection[i];
+                        this.selectedIds[i] = selectionElement._id;
+                    }
+
+                    // 发送ajax请求
+                    var _this = this;
+                    axios({
+                        method: "post",
+                        url: "http://localhost:8080/brand_case_war/order/deleteByIds",
+                        data: _this.selectedIds
+                    }).then(function (resp) {
+                        if (resp.data == "success") {
+                            //删除成功
+                            //重新查询数据
+                            _this.selectAll();
+                            _this.$message({
+                                message: '恭喜你，删除成功',
+                                type: 'success'
+                            });
+                        } else {
+                            this.$message.error('删除失败');
+                        }
+                    });
+
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
+            },
+
+            //删除单个数据
+            deleteById(id) {
+
+                this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    //用户点击确认
+                    var _this=this;
+                    axios({
+                        method: "get",
+                        url: "http://localhost:8080/brand_case_war/order/deleteById?id="+id,
+                    }).then(function (resp) {
+                        if (resp.data == "success") {
+                            //删除成功
+                            //重新查询数据
+                            _this.selectAll();
+                            _this.$message({
+                                message: '恭喜你，删除成功',
+                                type: 'success'
+                            });
+                        } else {
+                            this.$message.error('删除失败');
+                        }
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    });
+                });
+            },
+            odbtn(){
+                // document.getElementById('order').style.color='#3F9CFF';
+                this.active=1;
+                var _this=this;
+                window.location.replace("http://localhost:8080/brand_case_war/order.html?admin=" + _this.admin.username + "&position=" + _this.admin.userPosition);
+                // window.location.replace("./order.html");
+            },
+            adbtn(){
+                // document.getElementById('address').style.color='#3F9CFF';
+                this.active=2
+            },
+            ctbtn(){
+                // document.getElementById('chat').style.color='#3F9CFF';
+                this.active=3
+            },
+            ambtn(){
+                // document.getElementById('adm').style.color='#3F9CFF';
+                this.active=4
+            },
+            embtn(){
+                // document.getElementById('emp').style.color='#3F9CFF';
+                this.active=5;
+                var _this=this;
+                window.location.replace("http://localhost:8080/brand_case_war/users.html?admin=" + _this.admin.username + "&position=" + _this.admin.userPosition);
+                // window.location.replace("./users.html");
+            },
+            sfbtn(){
+                // document.getElementById('self').style.color='#3F9CFF';
+                this.active=6
+            },
+            lobtn(){
+                // document.getElementById('login').style.color='#3F9CFF';
+                this.active=7
+            }
+        },
+
+        data() {
+            return {
+                search: '',
+                //当前页码
+                pageSize: 5,
+                //总数据数量
+                totalCount: 100,
+                // 当前页码
+                currentPage: 1,
+                // 添加数据对话框是否展示的标记
+                dialogVisible: false,
+
+                dialogVisible1: false,
+
+                order: {
+                    _id: "",
+                    _openid: "",
+                    strattime: "",
+                    endtime: "",
+                    nickname: "",
+                    img: "",
+                    note: "",
+                    getphone: "",
+                    getplace: "",
+                    gettime: "",
+                    sendpersonid: "",
+                    sendplace: "",
+                    sendperson: "",
+                    sendphone: "",
+                    status: "",
+                    type: "",
+                    payment: "",
+                    userid: ""
+                },
+
+                admin: {
+                    username: '',
+                    userPosition: ''
+                },
+
+                // 被选中的id数组
+                selectedIds: [],
+                // 复选框选中数据集合
+                multipleSelection: [],
+                // 表格数据
+                tableData: [],
+                i: 0,
+            }
+        }
+    })
+    
+
+</script>
+
+</body>
+</html>

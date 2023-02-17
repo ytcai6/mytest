@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="webmaster.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 顶部标题部分 -->
+    <div class="tp">
+        <div class="hd1">  迅捷代跑后台管理系统  </div>
+
+        <!-- 装饰图标 -->
+        <div id="deco">
+            <img src="img/右上装饰图标.png" alt="图片加载失败" style="width: 55%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
+        </div>
+
+        <!-- 个人信息区 -->
+        <div id="info">
+            <div id="nickname"> 昵称 </div>
+            <div id="photo">
+                <img src="img/头像.png" alt="图片加载失败" style="width: 15%; position: absolute; top: 0; bottom: 0; margin: auto;">
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- 侧边栏 -->
+    <div id="sidebar">
+        <!-- 功能区 -->
+        <div id="funczone">
+            <ul id="functions">
+                <li>
+                    <img src="img/订单.png" alt="图片加载失败" style="width: 30px; vertical-align: middle; margin-right: 10px;" >
+                    订单管理
+                </li>
+                <li>
+                    <img src="img/地址.png" alt="图片加载失败" style="width: 30px; vertical-align: middle; margin-right: 10px;">
+                    地址管理
+                </li>
+                <li>
+                    <img src="img/聊天.png" alt="图片加载失败" style="width: 30px; vertical-align: middle; margin-right: 10px;">
+                    聊天记录</li>
+                <li>
+                    <img src="img/管理员.png" alt="图片加载失败" style="width: 30px; vertical-align: middle; margin-right: 10px;">
+                    管理员
+                </li>
+                <li>
+                    <img src="img/员工.png" alt="图片加载失败" style="width: 30px; vertical-align: middle; margin-right: 10px;">
+                    员工管理
+                </li>
+                <li>
+                    <img src="img/个人.png" alt="图片加载失败" style="width: 30px; vertical-align: middle; margin-right: 10px;">
+                    个人评价
+                </li>
+                <li>
+                    <img src="img/登录.png" alt="图片加载失败" style="width: 30px; vertical-align: middle; margin-right: 10px;">
+                    登陆日志
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 筛选区 -->
+    <div id="flzone">
+        <!-- 表格上小标题 -->
+        <div id="ttl">  welcome:false(false)  </div>
+
+        <!-- 过滤条件 -->
+        <div id="filters">
+            <form action="" id="ops">
+                当前状态
+                <select name="当前状态" id="status">
+                    <!-- <option value="none" selected disabled hidden>当前状态</option>  -->
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                企业名称
+                <input type="text" name="企业名称" id="cpname">
+
+                品牌名称
+                <input type="text" name="品牌名称" id="brname">
+
+                <input type="submint" value="查询" id="lookup">
+
+            </form>
+        </div>
+    </div>
+
+    <!-- 正文部分  -->
+    <div id="mainpart">
+        <!-- 表格区 -->
+        <div id="tbl"> </div>
+    </div>
+
+    
+    
+
+</body>
+</html>

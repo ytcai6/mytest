@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itcyt.mapper.AdminMapper">
+    <resultMap id="adminResultMap" type="Admin">
+        <result property="id" column="user_id"/>
+        <result property="phoneNumber" column="phone_number" />
+        <result property="userPosition" column="user_position" />
+    </resultMap>
+</mapper>

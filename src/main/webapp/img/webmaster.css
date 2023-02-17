@@ -1,0 +1,286 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-color: #FBFCFC;
+}
+
+/* 顶部栏 */
+.tp{
+    width: 98.4%;
+    height: 12.4%;
+    background-color: white;
+
+    padding-left: 20px;
+
+    position: relative;
+
+    /* border: #E4E7EE; */
+    border: 1.5px solid #E4E7EE;
+    
+}
+
+/* 标题 */
+.hd1{
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0,-50%,0);
+    
+    font-size: 30px;
+    font-weight: bold;
+    color: #4F515C;
+
+    letter-spacing:4px; 
+    display: inline-block; 
+    /* float: left; */
+}
+
+/* 右上角装饰图标 */
+#deco{
+    width: 6%;
+    height: 90px;
+
+    position: absolute;
+    top: -1.5%;
+    right: 0%;
+    background-color: #F8F9FC;
+
+    border: 1.5px solid #E4E7EE;
+    display: inline-block; 
+}
+
+/* 个人信息区 */
+#info{
+    width: 19%;
+    height: 90px;
+
+    position: absolute;
+    top: -1.5%;
+    right: 6.1%;
+
+    /* background-color: red; */
+    border: 1.5px solid #E4E7EE;
+    /* display: inline-block;  */
+}
+
+/* 昵称 */
+#nickname{
+    width: 46%;
+    
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    color: #4F515C;
+
+    /* background-color: red; */
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0,-50%,0);
+    float: left;
+}
+
+/* 头像 */
+#photo{
+    width: 46%;
+    height: 90px;
+
+    /* background-color: green; */
+    float: right;
+}
+
+/* 侧边栏 */
+#sidebar{
+    width: 13%;
+    height: 78.5%;
+
+    background-color: white;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    text-align: right;
+
+    border: 1.5px solid #E4E7EE;
+    float: left;
+}
+
+/* 功能 */
+#functions{
+    position: relative;
+    left: 13%;
+    list-style-type:none; 
+    line-height: 70px;
+
+    font-size: 18px;
+    /* font-weight: 540; */
+    /* font-weight: normal; */
+
+    text-align: left;
+
+    color: #545C70;
+    letter-spacing: 3px;
+    /* background-color: red; */
+}
+
+/* 刷选区 */
+#flzone{
+    width: 78%;
+    height: 10%;
+
+    position: relative;
+    top: 2%;
+    left: 19%;
+
+    /* background-color: #4F515C; */
+}
+
+/* 小标题 */
+#ttl{
+    /* width: 1%; */
+    /* height: 100%; */
+
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0,-50%,0);
+
+    font-size: 22px;
+    color: #363845;
+    /* font-weight: 600; */
+
+
+    /* background-color: yellow; */
+}
+
+/* 过滤条件 */
+#filters{
+    width: 75%;
+    height: 100%;
+
+    position: absolute;
+    right: 0;
+
+    /* background-color: yellow; */
+}
+
+/* 条件 */
+#ops{
+    width: 100%;
+    height: 47%;
+
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0,-50%,0);
+
+    font-size: 16px;
+    color: #565E71;
+    letter-spacing: 1px;
+}
+
+/* 当前状态 */
+#status{
+    width: 18%;
+    height: 100%;
+    
+    color: #75767F;
+
+    background-color: white;
+
+    border-color: #DEE2EC;
+    border-radius: 6px;
+
+    letter-spacing: 1px;
+
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+/* 企业名称 */
+#cpname{
+    width: 18%;
+    height: 90%;
+    
+    color: #75767F;
+
+    background-color: white;
+
+    border-color: #DEE2EC;
+    border-radius: 6px;
+    border-style:solid;
+
+    letter-spacing: 1px;
+
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+/* 品牌名称 */
+#brname{
+    width: 18%;
+    height: 90%;
+    
+    color: #75767F;
+
+    background-color: white;
+
+    border-color: #DEE2EC;
+    border-radius: 6px;
+    border-style:solid;
+
+    letter-spacing: 1px;
+
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+/* 查询按钮 */
+#lookup{
+    width: 6%;
+    height: 85%;
+
+    border-color: #DEE2EC;
+    border-radius: 15px;
+    border-style:solid;
+
+    text-align: center;
+
+    background-color: #3F9CFF;
+    color: white;
+}
+
+/* 表格区 */
+#mainpart{
+    width: 77%;
+    height: 68%;
+
+    position: relative;
+    left: 19.5%;
+    top: 2%;
+
+    background-color: white;
+
+    box-shadow: 0 0 15px 1px #DEE2EC;
+   
+}
+
+
+/* 表格设计 */
+#tbl{
+   
+    background-color: yellow;
+}
+
